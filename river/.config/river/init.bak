@@ -18,7 +18,7 @@ wlr-randr --output HDMI-A-2 --mode 1920x1080@120
 exec waybar &
 
 # Wallpaper
-wbg ~/wallpapers/misc/doggocat.png &
+swaybg -i /home/orin/Pictures/Wallpapers/4k-vaporwave-1920×1080-cat.png
 
 # Notification
 exec mako &
@@ -30,8 +30,6 @@ riverctl map normal Super+Shift Return spawn foot
 riverctl map normal Super P spawn 'fuzzel'
 
 # Screenshot
-riverctl map normal None Print spawn 'grim'
-riverctl map normal Shift Print spawn 'grim -g "$(slurp)"'
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
