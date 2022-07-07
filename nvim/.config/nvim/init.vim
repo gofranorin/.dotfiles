@@ -31,7 +31,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'pangloss/vim-javascript'
 
-noremap m h
+noremap f h
 noremap n j
 noremap e k
 noremap i l
