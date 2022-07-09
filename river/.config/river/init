@@ -40,13 +40,13 @@ riverctl map normal Super Q close
 riverctl map normal Super+Shift E exit
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
+riverctl map normal Super N focus-view next
+riverctl map normal Super E focus-view previous
 
 # Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
 # view in the layout stack
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
+riverctl map normal Super+Shift N swap next
+riverctl map normal Super+Shift E swap previous
 
 # Super+Period and Super+Comma to focus the next/previous output
 riverctl map normal Super Period focus-output next
@@ -60,30 +60,30 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super F send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super I send-layout-cmd rivertile "main-ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Shift F send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift I send-layout-cmd rivertile "main-count -1"
 
 # Super+Alt+{H,J,K,L} to move views
-riverctl map normal Super+Alt H move left 100
-riverctl map normal Super+Alt J move down 100
-riverctl map normal Super+Alt K move up 100
-riverctl map normal Super+Alt L move right 100
+riverctl map normal Super+Alt F move left 100
+riverctl map normal Super+Alt E move down 100
+riverctl map normal Super+Alt N move up 100
+riverctl map normal Super+Alt I move right 100
 
 # Super+Alt+Control+{H,J,K,L} to snap views to screen edges
-riverctl map normal Super+Alt+Control H snap left
-riverctl map normal Super+Alt+Control J snap down
-riverctl map normal Super+Alt+Control K snap up
-riverctl map normal Super+Alt+Control L snap right
+riverctl map normal Super+Alt+Control F snap left
+riverctl map normal Super+Alt+Control N snap down
+riverctl map normal Super+Alt+Control E snap up
+riverctl map normal Super+Alt+Control I snap right
 
 # Super+Alt+Shift+{H,J,K,L} to resize views
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
+riverctl map normal Super+Alt+Shift F resize horizontal -100
+riverctl map normal Super+Alt+Shift N resize vertical 100
+riverctl map normal Super+Alt+Shift E resize vertical -100
+riverctl map normal Super+Alt+Shift I resize horizontal 100
 
 # Super + Left Mouse Button to move views
 riverctl map-pointer normal Super BTN_LEFT move-view
@@ -118,7 +118,7 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 riverctl map normal Super Space toggle-float
 
 # Super+F to toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super F11 toggle-fullscreen
 
 # Super+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
@@ -131,10 +131,10 @@ riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 riverctl declare-mode passthrough
 
 # Super+F11 to enter passthrough mode
-riverctl map normal Super F11 enter-mode passthrough
+riverctl map normal Super F12 enter-mode passthrough
 
 # Super+F11 to return to normal mode
-riverctl map passthrough Super F11 enter-mode normal
+riverctl map passthrough Super F12 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
