@@ -12,8 +12,11 @@
 # Resolution
 exec xrandr --output HDMI-0 --mode 1920x1080 --rate 144
 
+# Compositor
+exec picom --experimental-backends
+
 # Keyboard Layout
-exec setxkbmap canary
+exec setxkbmap semimak
 
 # Sound
 exec gentoo-pipewire-launcher
