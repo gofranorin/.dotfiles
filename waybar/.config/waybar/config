@@ -3,26 +3,25 @@
     "position": "top",
     "height": 33, 
     "width": 1920,
-    "modules-left": ["sway/mode", "clock", "clock#clock2", "custom/spotify"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "temperature"],
-
-"wlr/workspaces": {
+    "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-center": ["clock"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "tray"],
+"hyprland/workspaces": {
 		"disable-scroll": true,
 		"on-click": "activate",
 		"all-outputs": true,
 		"format": "{icon}",
     "format-icons": {
-      "1": "ক",
-      "2": "খ",
-      "3": "গ",
-      "4": "ঘ",
-      "5": "ঙ",
-      "6": "চ",
-      "7": "ছ",
-      "8": "জ",
-      "9": "ঝ",
-      "10": "ঞ",
+      "1": "১",
+      "2": "২",
+      "3": "৩",
+      "4": "৪",
+      "5": "৫",
+      "6": "৬",
+      "7": "৭",
+      "8": "৮",
+      "9": "৯",
+      "10": "১০",
       "default": "一",
       }
      },
@@ -75,6 +74,25 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+        "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+	    },
+	    "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+},
     "battery#bat2": {
         "bat": "BAT2"
     },
@@ -122,4 +140,3 @@
 
     }
 }
-
