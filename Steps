@@ -1,0 +1,84 @@
+# DISK configuration
+
+
+
+pacstrap the following
+
+pacstrap /mnt base base-devel linux-zen linux-firmware linux-zen-headers openssh vim lvm2 networkmanager linux-lts linux-lts-headers
+
+
+mkinitcpio.conf
+
+on the HOOKS line type in 'lvm2' within 'block' and 'filesystems'
+
+Adding User
+
+$useradd -m -g users -G wheel (username)
+$passwd
+
+uncomment %wheel ALL=(ALL) ALL in the sudoers file
+
+EDITOR=[editor] visudo
+
+
+ADDING Kernel parameter nvidia modeset
+
+Boot into arch and edit /etc/default/grub
+Add kernel option to the line GRUB_CMDLINE_LINUX
+GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1"
+Regenerate /boot/grub/grub.cfg:
+grub-mkconfig -o /boot/grub/grub.cfg
+
+Pacman Hook that helps nvidia dirver update
+
+(/etc/pacman.d/hooks/nvidia.hook)
+
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia
+Target=linux
+# Change the linux part above and in the Exec line if a different kernel is used
+
+[Action]
+Description=Update Nvidia module in initcpio
+Depends=mkinitcpio
+When=PostTransaction
+NeedsTargets
+Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+
+
+
+
+Important programs for wayland; gtk3 gtk4 qt5-wayland qt6-wayland xorg-xwayland
+
+paru git link: https://aur.archlinux.org/paru.git
+
+System Programs: sddm-kcm konsole dolphin git kscreen plasma-pa plasma-nm pipewire pipewire-alsa pipewire-pulse gparted xorg-xrandr kde-gtk-config khotkeys kgamma5 kdeplasma-addons xdg-desktop-portal-kde plasma-sdk arch-audit-gtk easyeffects
+
+Later check out plasma-meta package to uninstall unneeded packages
+
+Important Programs: firefox Qview(AUR) kate steam lutris obs discord okular libreoffice  krita obs-studio flameshot spotify(aur) kvantum(aur)
+
+Stuff needed for games: feral gamemode. FSR
+
+https://wiki.archlinux.org/title/firejail#Installation
+
+
+Theme
+
+Global: Breeze-Dark
+Application Style: Kvantum
+Plasma Style: Layan
+Colors: KvDarkred
+Window Decorations: Layan
+Icons: Vimix
+Cursors: Breeze
+
+systemctl enable sshd
+systemctl enable sddm
+systemctl enable networkmanager
+
+
