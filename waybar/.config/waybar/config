@@ -3,9 +3,9 @@
     "position": "top",
     "height": 33, 
     "width": 1920,
-    "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window", "mpris", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "tray"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature","keyboard-state", "sway/language", "battery", "battery#bat2", "bluetooth", "tray"],
 "hyprland/workspaces": {
 		"disable-scroll": true,
 		"on-click": "activate",
@@ -26,6 +26,17 @@
       }
      },
 
+     "hyprland/window": {
+    "format": "{class}",
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "🌎 $1",
+        "(.*) - fish": "> [$1]"
+    },
+    "icon": true,
+    "icon-size": 20,
+    "separate-outputs": true
+},
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -35,10 +46,7 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
+        "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
@@ -61,6 +69,16 @@
     "memory": {
         "format": "{}% "
     },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections} connected",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"on-click": "rofi-bluetooth"
+},
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -94,7 +112,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "Ethernet  ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -117,12 +135,34 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
     },
-    "hyprland/window": {
-	"format": "{}",
-    "separate-outputs": true
+
+    "custom/pipewire": {
+    "format": "{icon}",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "format-icons": {
+        "mute": "",
+        "default": ["", "", "", ""],
     },
+    "exec": "pw-volume status"
+},
+
+"mpris": {
+	"format": "{player_icon} {artist} - {title}",
+	"format-paused": "{status_icon} <i>{artist} - {title}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	"ignored-players": ["firefox"]
+},
+
 "custom/spotify": {
     "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
     "format": "{} ",

@@ -78,6 +78,33 @@ button:hover {
     border-bottom: 3px solid #ffffff;
 }
 
+#window {
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+#bluetooth{
+    color: #8caaee;
+    background-color: transparent;
+}
+
+
+window#waybar.kitty {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+window#waybar.chromium {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
 #clock,
 #battery,
 #cpu,
@@ -98,7 +125,6 @@ button:hover {
     color: #ffffff;
 }
 
-#window,
 #workspaces {
     margin: 0 4px;
 }
@@ -113,9 +139,15 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
+/*#clock {
     background-color: transparent;
     color: #fdfdfd;
+    padding: 0 12px;
+} */
+
+#clock {
+    background-color: transparent;
+    color: #e78284;
     padding: 0 12px;
 }
 
@@ -156,13 +188,13 @@ label:focus {
 
 #cpu {
     background-color: transparent;
-    color: #fdfdfd;
+    color: #eebebe;
     padding: 0 12px;
 }
 
 #memory {
     background-color: transparent;
-    color: #fdfdfd;
+    color: #81c8be;
     padding: 0 12px;
 }
 
@@ -186,11 +218,14 @@ label:focus {
     padding: 0 12px;
 }
 
+
 #pulseaudio {
     background-color: transparent;
-    color: #fdfdfd;
+    color: #ef9f76;
     padding: 0 12px;
 }
+
+
 
 #pulseaudio.muted {
     background-color: #90b1b1;
@@ -223,7 +258,7 @@ label:focus {
 
 #temperature {
     background-color: transparent;
-    color: #fdfdfd;
+    color: #df8e1d;
     padding: 0 12px;
 }
 
