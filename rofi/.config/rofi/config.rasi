@@ -114,4 +114,6 @@ button selected {
 
 //@theme "/usr/share/rofi/themes/DarkBlue.rasi"
 
-@theme "/home/kobutor/.local/share/rofi/themes/squared-material-red.rasi"
+//@theme "/home/kobutor/.local/share/rofi/themes/squared-material-red.rasi"
+
+@theme "/home/kobutor/.config/rofi/themes/dmenu.rasi"

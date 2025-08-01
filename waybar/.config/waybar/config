@@ -5,7 +5,7 @@
     "width": 1920,
     "modules-left": ["hyprland/workspaces", "hyprland/window", "mpris", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature","keyboard-state", "sway/language", "battery", "battery#bat2", "bluetooth", "tray"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "bluetooth", "tray"],
 "hyprland/workspaces": {
 		"disable-scroll": true,
 		"on-click": "activate",
@@ -30,6 +30,7 @@
     "format": "{class}",
     "rewrite": {
         "(.*) — Mozilla Firefox": "🌎 $1",
+        "(.*) — org.strawberrymusicplayer.strawberry": "Strawberry",
         "(.*) - fish": "> [$1]"
     },
     "icon": true,
