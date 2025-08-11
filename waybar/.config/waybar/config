@@ -5,7 +5,7 @@
     "width": 1920,
     "modules-left": ["hyprland/workspaces", "hyprland/window", "mpris", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "bluetooth", "tray"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "bluetooth", "tray"],
 "hyprland/workspaces": {
 		"disable-scroll": true,
 		"on-click": "activate",
@@ -68,7 +68,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 🧠"
     },
     "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
@@ -86,7 +86,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", "🌡"]
     },
         "battery": {
         "states": {
@@ -121,12 +121,9 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
